@@ -13,24 +13,38 @@ player Player;
 
 int main()
 {
+    int LastLocaX=Player.cdtX;
+    int LastLocaY=Player.cdtY;
     int ch, ch2;
     bool Exit = false;
 
     Map CrtMap(Player.CrtLocation + ".txt");
+    
 
     while (!Exit)
     {
+
+        CrtMap.content[Player.cdtX+(CrtMap.width+1)*Player.cdtY]='@';
+        cout << CrtMap.content << endl
+             << "--------\n";
+
         ch = getch();
         system("cls");
 
-        cout << CrtMap.content << endl
-             << "--------\n";
+        
 
         if (ch == 0 || ch == 224)
         {
             ch2 = getch();
 
             Player.Moving(ch2);
+
+            if(CrtMap.content[Player.cdtX+(CrtMap.width+1)*Player.cdtY]!=' '){
+                Player.cdtX=LastLocaX;
+                Player.cdtY=LastLocaY;
+
+                cout<<"Can not Go that way.\n";
+            }
         }
         else
         {
@@ -59,6 +73,7 @@ int main()
                 cout << ch << "  No such Input\n";
                 break;
             }
+
         }
         cout << "-----\n";
     }
