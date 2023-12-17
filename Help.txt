@@ -1,0 +1,5 @@
+Here is all the Command that you can use:
+
+Setgold : Change your Gold.
+
+Showgold : Show how many gold that you have.

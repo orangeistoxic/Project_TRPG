@@ -9,39 +9,40 @@ public:
     player(){}
     int cdtX=2;
     int cdtY=2;
-    string CrtLocation="Town";
+    int CrtLocation=1;
 
     void SetCoordinate(int x,int y){
         cdtX=x;
         cdtY=y;
     }
 
-    void Moving(int ch2){
+    string Moving(int ch2){
         switch (ch2)
         {
         case 72:
-            cout << ch2 << "  up\n";
             cdtY--;
-            break;
+            return "72 up \n";
 
         case 75:
-            cout << ch2 << "  left\n";
             cdtX--;
-            break;
+            return  "75 left \n";
 
         case 80:
-            cout << ch2 << "  down\n";
             cdtY++;
-            break;
+            return "80 down \n";
 
         case 77:
-            cout << ch2 << "  right\n";
             cdtX++;
-            break;
+            return "77 right \n";
 
         default:
-            cout << ch2 << "  No such Input\n";
-            break;
+            return to_string(ch2)+"  No such Input \n";
         }
+    }
+
+    int Gold=100;
+
+    void SetGold(int num){
+        Gold=num;
     }
 };

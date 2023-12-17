@@ -9,7 +9,6 @@ class Map
     public:
     string content;
     int width = 0, height = 0;
-
     Map(const string path)
     {
         ifstream inputfile(path);
@@ -42,5 +41,7 @@ class Map
                 height += 1;
             }
         }
+
+        
     }
 };
