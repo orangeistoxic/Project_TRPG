@@ -83,20 +83,19 @@ map<string, Item> AllItem =
 
 bool InitializedItem()
 {
-    Sword.SetCombatStat(10,0);
-    Sword.SetAddtion(5,0,0,0);
-    Sword.SetRequiremant(10,5,0,5);
+    Sword.SetCombatStat(10, 0);
+    Sword.SetAddtion(5, 0, 0, 0);
+    Sword.SetRequiremant(10, 5, 0, 5);
 
-    Wand.SetCombatStat(10,0);
-    Wand.SetAddtion(0,5,5,0);
-    Wand.SetRequiremant(0,5,10,5);
+    Wand.SetCombatStat(10, 0);
+    Wand.SetAddtion(0, 5, 5, 0);
+    Wand.SetRequiremant(0, 5, 10, 5);
 
-    SmallHealthPotion.SetRecoverHealthAndMana(20,0);
+    SmallHealthPotion.SetRecoverHealthAndMana(20, 0);
     SmallHealthPotion.SetStackLimit(10);
 
-    BigHealthPotion.SetRecoverHealthAndMana(50,0);
+    BigHealthPotion.SetRecoverHealthAndMana(50, 0);
     BigHealthPotion.SetStackLimit(10);
 
     return 1;
-
 }
