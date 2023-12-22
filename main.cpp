@@ -1,7 +1,9 @@
 #include <iostream>
 #include <conio.h>
+#include <map>
 #include "map.cpp"
 #include "Player.cpp"
+#include "Item.cpp"
 
 using namespace std;
 
@@ -12,23 +14,57 @@ Map Town("Town_1.txt");
 Map CrtMap("ExMap.txt");
 player Player;
 ifstream inputfile("Help.txt");
+bool ItemInitialized=(bool)InitializedItem();
+
 string Help = string((istreambuf_iterator<char>(inputfile)), istreambuf_iterator<char>());
+map<string, int> AllCommand =
+    {
+        {"Setgold", 1},
+        {"Showgold", 2},
+        {"Showitemstat",3}};
 
 // End of Setting Up and Loading
 
 void Command(string Input){
     int num;
-    if(Input=="Setgold"){
-        cout<<"Change to...";
-        cin>>num;
-        Player.SetGold(num);
-        cout << "Gold Set!\n"
-             << "--------\n";
+    string word;
+    Item item;
+    int NumCommand=AllCommand[Input];
+
+    switch(NumCommand)
+    {
+        case 1:
+            cout << "Change to...";
+            cin >> num;
+            Player.SetGold(num);
+            cout << "Gold Set!\n"
+                 << "--------\n";
+            break;
+
+        case 2:
+            cout << "You Have " << Player.Gold << " Gold.\n"
+                 << "--------\n";
+            break;
+        case 3:
+            cout<<"Which Item stat:\n";
+            cin>>word;
+            item=AllItem[word];
+            if(item.type=="Weapon" || item.type=="Armor")
+            {
+                item.ShowAllStat_WeaponAndArmor();
+            }
+            else if(item.type=="Comsumable")
+            {
+                item.ShowAllStat_Comsumable();
+            }
+            break;
+        default:
+            cout << "No such Command.\n"
+                 << "--------\n";
+            break;
+            
     }
-    else if(Input=="Showgold"){
-        cout << "You Have " << Player.Gold << " Gold.\n"
-             << "--------\n";
-    }
+    
 }
 
 int main()
