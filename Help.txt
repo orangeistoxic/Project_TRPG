@@ -3,3 +3,14 @@ Here is all the Command that you can use:
 Setgold : Change your Gold.
 
 Showgold : Show how many gold that you have.
+
+Showitemstat : Show all the item Info. 
+
+Equipitem : Equip iten that in your back pack.
+
+Getstarterpack : Give player some Gears for free.
+
+Godmode : Just Cheating.
+
+Showplayerstat : Show all the player Info.
+

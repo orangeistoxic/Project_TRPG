@@ -7,5 +7,5 @@ using namespace std;
 bool ItemInitialized=(bool)InitializedItem();
 
 int main(){
-    cout<<Sword.ATK<<endl;
+    cout<<RustedSword.ATK<<endl;
 }

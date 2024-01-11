@@ -1,15 +1,19 @@
+#ifndef map_cpp
+#define map_cpp
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <map>
 
 using namespace std;
 
-class Map
+class MMap
 {
     public:
+    string Name;
     string content;
     int width = 0, height = 0;
-    Map(const string path)
+    MMap(string name = "ExMap", const string path = "ExMap_0.txt")
     {
         ifstream inputfile(path);
         if (!inputfile.is_open())
@@ -42,6 +46,16 @@ class Map
             }
         }
 
+        Name=name;
         
     }
 };
+
+MMap GreenTown("GreenTown", "GreenTown_1.txt");
+MMap ExMap("ExMap", "ExMap_0.txt");
+
+map<int, MMap> AllMap =
+    {
+        {0, ExMap},
+        {1, GreenTown}};
+#endif
