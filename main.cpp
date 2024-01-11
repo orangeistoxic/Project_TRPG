@@ -210,7 +210,7 @@ bool ConbatPhase()
                 }
 
                 Player.NowHealth -= MonDmg;
-                cout << Monster.Name << "Attack you with " << MonDmg << "Damage, now you have " << Player.NowHealth << " Health remain.\n";
+                cout << Monster.Name << "Attack you with " << MonDmg << " Damage, now you have " << Player.NowHealth << " Health remain.\n";
             }
             else if (input == "E" || input == "Excape" || input=="e")
             {
@@ -222,7 +222,7 @@ bool ConbatPhase()
                 Player.NowHealth -= ExDmg;
                 if (Player.NowHealth > 0)
                 {
-                    cout << Monster.Name << "Attack you with " << ExDmg << "Damage, now you have " << Player.NowHealth << " Health remain.\n";
+                    cout << Monster.Name << "Attack you with " << ExDmg << " Damage, now you have " << Player.NowHealth << " Health remain.\n";
                     cout << "And you sucessfully Excape.\n";
                     return 1;
                 }
@@ -252,9 +252,7 @@ int main()
     bool MonAlive = 0;
     bool PlayerAlive = 1;
 
-    while (!Exit)
-    {
-        switch (Player.CrtLocation)
+    switch (Player.CrtLocation)
         {
 
         case 1:
@@ -264,6 +262,10 @@ int main()
             CrtMap = ExMap;
             break;
         }
+
+    while (!Exit)
+    {
+        
         Merchant = "";
         SysReturnInfo = "";
         ch = getch();
@@ -337,6 +339,7 @@ int main()
                 PlayerAlive = ConbatPhase();
                 if (PlayerAlive)
                 {
+                    cout<<"you win!!\n";
                     MonAlive = 0;
                     CrtMap.content[MonLocaX + (CrtMap.width + 1) * MonLocaY] = ' ';
                 }
